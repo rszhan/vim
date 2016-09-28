@@ -6,6 +6,12 @@ call vundle#rc('$HOME/.vim/bundle')
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
+" Plugin 'Valloric/YouCompleteMe'
+" Plugin 'davidhalter/jedi-vim'
+Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
+Plugin 'easymotion/vim-easymotion'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
@@ -30,6 +36,7 @@ silent! map <F3> :NERDTreeFind<CR>
 
 let g:NERDTreeMapActivateNode="<F3>"
 let g:NERDTreeMapPreview="<F4>"
+let mapleader="\\"
 
 if has("gui_running")
   " GUI is running or is about to start.
@@ -46,3 +53,24 @@ else
 endif
 
 imap <S-Space> <Esc>
+
+nnoremap <F12>c :update<Bar>silent !start "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" "file://%:p"<CR>
+
+filetype plugin indent on
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
+let g:EasyMotion_leader_key='<Leader>'
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+nmap s <Plug>(easymotion-s)
+nmap <SPACE> <Plug>(easymotion-s2)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+
